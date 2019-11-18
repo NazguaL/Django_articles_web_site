@@ -1,0 +1,58 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "articlesapp/main.css" %}">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+</head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+        <a class="navbar" style="color:white"><b>vITNews</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'articles-home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contacts' %}">Contacts</a>
+            </li>
+          </ul>
+        </div>
+            <div class="navbar-nav">
+                <a href="#" class="btn btn-outline-secondary mr-2">Sign Up</a>
+                <a href="#" class="btn btn-outline-secondary">Sign In</a>
+            </div>
+        </nav>
+        <main class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% block body %}
+                    {% endblock %}
+                </div>
+                <aside class="col-md-4">
+                    <div class="p-3">
+                        {% block aside_breaking_news %}
+                        {% endblock %}
+                    </div>
+                    <div class="p-3 mb-3">
+                        <h3><b>Learn Python</b></h3>
+                        <img src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2017/06/VO5tApb-1-796x398.jpg" alt="" class="img-thumbnail mb-3">
+                        <input type="button" class="btn btn-warning" onclick="location.href='https://www.python.org/';" value="Start learning now"/>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </body>
+</html>
